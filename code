@@ -1,0 +1,50 @@
+# Data Mahasiswa
+data = []
+
+def tambah():
+    print("\nTambah Data Mahasiswa")
+    nim = input("NIM (11 digit): ")
+    if len(nim) != 11 or not nim.isdigit():
+        print("NIM harus 11 digit angka")
+        return
+
+    nama = input("Nama (min 6 karakter): ")
+    if len(nama) < 6:
+        print("Nama minimal 6 karakter")
+        return
+
+    alamat = input("Alamat (min 10 karakter): ")
+    if len(alamat) < 10:
+        print("Alamat minimal 10 karakter")
+        return
+
+    kelas = input("Kelas: ")
+
+    # simpan data
+    data.append([nim, nama, alamat, kelas])
+    print("Data berhasil ditambahkan")
+
+def tampil():
+    print("\nData Mahasiswa:")
+    if len(data) == 0:
+        print("Belum ada data")
+    else:
+        for i in range(len(data)):
+            print(f"{i+1}. NIM: {data[i][0]}, Nama: {data[i][1]}, Alamat: {data[i][2]}, Kelas: {data[i][3]}")
+
+while True:
+    print("\nMenu:")
+    print("1. Tambah Data")
+    print("2. Tampilkan Data")
+    print("3. Keluar")
+    pilih = input("Pilih (1/2/3): ")
+
+    if pilih == "1":
+        tambah()
+    elif pilih == "2":
+        tampil()
+    elif pilih == "3":
+        print("Program selesai")
+        break
+    else:
+        print("Pilihan salah")
